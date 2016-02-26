@@ -5,13 +5,13 @@ require 'json'
 require 'logger'
 
 configure do
-  use Rack::CommonLogger, Logger.new(File.new('logs/log.log', 'a+'))
+  use Rack::CommonLogger, Logger.new(File.new('./logs/log.log', 'a+'))
 end
 
 set :port, 9000
 set :bind, '0.0.0.0'
 
-$redis = Redis.new YAML.load_file 'redis.yml'
+$redis = Redis.new YAML.load_file './configs/redis.yml'
 
 get '/unmarshal' do
   content_type :json
