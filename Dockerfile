@@ -5,5 +5,6 @@ RUN apk add --no-cache make g++
 
 RUN gem install sinatra
 RUN gem install thin
+RUN gem install redis
 
-RUN rm -f tmp/compiled_content /tmp/checksums
+EXPOSE 9000
